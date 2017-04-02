@@ -1,0 +1,21 @@
+<!--  
+para: user, restaurant, count: index of picture, <=10, count can also reflect
+restaurant category, i.e. count == 1 <==> restaurant.category == 1
+you can retrieve user info wrt schema in db_create.py. eg user.id, user.name. 
+-->
+<html>
+	<head>
+	</head>
+	<body>
+		<p>This is Choose Pictures Page for {{user.name}}</p>
+		<p>Here shows random picture from {{restaurant.name}}</p>
+		<p>The restaurant id is {{restaurant.id}}</p>
+		<p>It belongs to category {{restaurant.category}}</p>
+		<p>pic_index is {{pic_Index}}</p>
+		<form action="{{url_for('ChoosePictures', user_name=user.name, 
+			restaurant_name=restaurant.name, count=count, pic_Index=pic_Index)}}" method='POST'>
+			<input type="submit" name="like" value="like">
+			<input type="submit" name="dislike" value="dislike">
+		<a href='{{url_for('MatchFriend', user_name=user.name)}}'>Match Friend!</a>
+	</body>
+<html>

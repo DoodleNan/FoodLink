@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Touch Slider-->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/welcomepage.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='lib/w3.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+</head>
+<body>
+
+    <!-- Background Picture -->
+    <div id="background">
+        <div class="welcome">
+            <div>FOODLINK</div>
+            <div class="food">FOOD</div>
+            <div class="plus">+</div>
+            <div class="friends">FRIENDS</div>
+        </div>
+        <!-- Start Button -->
+        <form action="{{ url_for('givePicture', user_name=user_name)}}" method='GET'>
+            <input class="startbutton" type="submit" value="start"/>
+        </form>
+        <!-- End Start Button -->
+    </div>
+    <!--  End background picture -->
+
+    <!-- Bottom Bar -->
+    <div class="w3-bar w3-display-bottomleft w3-black w3-mobile" style="height:10%;width: 100%; display: inline;">
+        <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-home"></i></button>
+        <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-gift"></i></button>
+        <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-child"></i></button>
+    </div>
+    <!-- End Bottom Bar -->
+
+</body>
+</html>

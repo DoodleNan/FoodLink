@@ -1,0 +1,88 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    background-color: #f2f2f2;
+}
+
+body {
+    overflow: hidden;
+    background-color: #f2f2f2;
+}
+
+/*topmenu*/
+.signup_topmenu {
+    position: absolute;
+    height: 10%;
+    width: 100%;
+}
+.signup_top {
+    max-width: 400px;
+    margin:10px 10px 10px 10px;
+}
+
+/*header*/
+ .signup_header {
+    color: #333333;
+    font-family: courier;
+    font-size: 36px;   
+    padding-top: 1.5%;
+    text-align: center;
+}
+/*end topmenu*/
+
+/*sign up*/
+.sign_up {
+    border-radius: 5px;
+    font-family: courier;
+    font-size: 14px;
+    padding: 20% 5% 20% 5%;
+}
+
+input[type = text], select {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type = sign_up] {
+    width: 100%;
+    background-color: #333330;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type = sign_up]:hover {
+    background-color: #9E9D9D;
+    color: #FFFFFF;
+}
+
+select {
+	width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    box-sizing: border-box;
+}
+
+.text1 {
+	color: #333333;
+	text-align: left;
+	padding-top: 1.5%;
+	border-style: solid none none none;
+    border-width: 2px;
+    font-size: 18px;
+	padding-bottom: 2%;
+}

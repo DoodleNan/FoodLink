@@ -1,0 +1,26 @@
+<!-- para: source target -->
+<html>
+	<head>
+	<script>
+		function sub1(){
+			document.getElementById('agree').value = "agree";
+			document.getElementById('myform').submit();
+		}
+		function sub2(){
+			document.getElementById('myform').submit();
+		}
+	</script>
+	</head>
+	<body>
+		<p>This is Match Friend Page</p>
+		<p>We find a prefect match for you!</p>
+		<p>Source is {{source.name}}</p>
+		<p>Target is {{target.name}}</p>
+		<p>More target info display here...</p>
+		<form id="myform" action="{{url_for('deal_friend', user_name=source.name,friend_name=target.name)}}" method="POST">
+			<button onclick="sub1()">Add</button>
+			<button onclick="sub2()">Later</button>
+			<input type="hidden" id="agree" name="agree"  value="disagree">
+		</form>
+	</body>
+<html>
