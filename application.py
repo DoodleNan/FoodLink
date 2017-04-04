@@ -26,13 +26,13 @@ application.secret_key = 'cC1YCIWOj9GgWspgNEo2'
 engine = create_engine('sqlite:///test.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
-# session = scoped_session(DBSession)
-session = DBSession()
+session = scoped_session(DBSession)
+# session = DBSession()
 # session._model_changes = {}
 
-# @application.teardown_request
-# def remove_session(ex=None):
-#     session.remove()
+@application.teardown_request
+def remove_session(ex=None):
+    session.remove()
 
 # main page
 @application.route('/')
