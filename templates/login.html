@@ -13,7 +13,7 @@
 	<body>
 		<p>This is log in page</p>
 		<div id="status"></div>
-		<button onclick="javascript:login();">Logout in Facebook
+		<button onclick="javascript:login();">Log in Facebook
 		</button>
 
 		<button onclick="javascript:logout();">Logout from Facebook</button>
@@ -78,8 +78,8 @@ function login(){
 			    console.log(response);
 			    document.getElementById('name').value = response.name;
 				document.getElementById('gender').value = response.gender;
-				document.getElementById('latitude').value = response.location.location.latitude;
-				document.getElementById('longitude').value = response.location.location.longitude;
+				// document.getElementById('latitude').value = response.location.location.latitude;
+				// document.getElementById('longitude').value = response.location.location.longitude;
 				document.getElementById('age').value = response.age_range.min;
 				document.getElementById('picture').value = response.picture.data.url;
 				document.getElementById('myform').submit();

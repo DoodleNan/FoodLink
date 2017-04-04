@@ -47,12 +47,12 @@ def Login():
     name = request.form['name']
     gender = request.form['gender']
     picture = request.form['picture']
-    latitude = request.form['latitude']
-    longitude = request.form['longitude']
+    # latitude = request.form['latitude']
+    # longitude = request.form['longitude']
     age = request.form['age']
     user = session.query(User).filter_by(name=name).all()
     if len(user) == 0:
-        newuser = User(name=name, preference=0, image=picture, zipCode=latitude + ' ' + longitude)
+        newuser = User(name=name, preference=0, image=picture)
         session.add(newuser)
         session.commit()
     return redirect(url_for('StartPage', user_name=name))
