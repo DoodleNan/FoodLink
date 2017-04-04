@@ -36,12 +36,31 @@ session = DBSession()
 
 # main page
 @application.route('/')
+def Mainpage():
+    # user = session.query(User).filter_by(name='Nan Li').one()
+    # session.delete(user)
+    # session.commit()
+    return render_template('login.html')
+
+@application.route('/login/', methods=['POST'])
+def Login():
+    name = request.form['name']
+    gender = request.form['gender']
+    picture = request.form['picture']
+    latitude = request.form['latitude']
+    longitude = request.form['longitude']
+    age = request.form['age']
+    user = session.query(User).filter_by(name=name).all()
+    if len(user) == 0:
+        newuser = User(name=name, preference=0, image=picture, zipCode=latitude + ' ' + longitude)
+        session.add(newuser)
+        session.commit()
+    return redirect(url_for('StartPage', user_name=name))
+
 @application.route('/<string:user_name>/', methods=['GET'])
 def StartPage(user_name):
     return render_template('welcomepage.html', user_name=user_name)
-@application.route('/Mainpage/')
-def Login():
-    return render_template('login.html')
+
 @application.route('/gp/<string:user_name>',methods=['GET','POST'])
 def givePicture(user_name):
     if request.method=='GET':
@@ -354,4 +373,4 @@ def deal_coupon(user_name, friend_name):
 
 if __name__ == '__main__':
 	application.debug = True
-	application.run()
+	application.run('localhost', port=2000)
