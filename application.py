@@ -17,8 +17,8 @@ session = scoped_session(DBSession)
 #session._model_changes = {}
 
 @application.teardown_request
- def remove_session(ex=None):
-     session.remove()
+def remove_session(ex=None):
+    session.remove()
 
 # main page
 @application.route('/')
