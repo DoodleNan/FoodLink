@@ -582,7 +582,7 @@ restaurant2 = Restaurant(name="Amara", category=7,
 session.add(restaurant2)
 session.commit()
 
-restaurant3 = Restaurant(name="Double Zero", category=7, 
+restaurant3 = Restaurant(name="Double & Zero", category=7, 
 	pic1='http://i.ndtvimg.com/i/2015-07/pancake-625_625x350_41435922828.jpg',
 	pic2='https://img.grouponcdn.com/deal/k3EyCBD149fq3nSARny/ft-2048x1229/v1/c700x420.jpg', 
 	pic3='https://thoughtcatalog.files.wordpress.com/2014/04/shutterstock_115964296.jpg?w=584&h=390', 
@@ -928,45 +928,47 @@ session.add(restaurant10)
 session.commit()
 # add users
 
-user2=User(name='Bob', preference=1023, zipCode='zipCode',image='http://www.clipartbest.com/cliparts/aTe/6pk/aTe6pkAqc.jpg')
+user2=User(name='Bob', email='lovebob@gmail.com', preference=1023, age= 25, gender='male', image='http://img3.cache.netease.com/photo/0026/2013-08-22/96TAN67B513O0026.jpg')
 session.add(user2)
 session.commit()
 
-user3=User(name='Candy', preference=0, zipCode='zipCode',image='http://your-insurer.com/wp-content/uploads/2015/01/Agent-Sing2.jpg')
-session.add(user3)
-session.commit()
+# user3=User(name='Candy', preference=0, zipCode='zipCode',image='http://your-insurer.com/wp-content/uploads/2015/01/Agent-Sing2.jpg')
+# session.add(user3)
+# session.commit()
 
-user4=User(name='David', preference=0, zipCode='zipCode',image='https://userscontent2.emaze.com/images/ef511f5d-96fa-4e7e-a7e1-49db36a8e9a2/715509f9d4ef6b01e018135121a72623.jpg')
-session.add(user4)
-session.commit()
+# user4=User(name='David', preference=0, zipCode='zipCode',image='https://userscontent2.emaze.com/images/ef511f5d-96fa-4e7e-a7e1-49db36a8e9a2/715509f9d4ef6b01e018135121a72623.jpg')
+# session.add(user4)
+# session.commit()
 
-user5=User(name='Eric',preference=0, zipCode='zipCode',image='http://www.tonydczech.com/Tony_Cartoon.jpg')
-session.add(user5)
-session.commit()
+# user5=User(name='Eric',preference=0, zipCode='zipCode',image='http://www.tonydczech.com/Tony_Cartoon.jpg')
+# session.add(user5)
+# session.commit()
 
-user6=User(name='Frank', preference=0, zipCode='zipCode',image='https://s-media-cache-ak0.pinimg.com/236x/df/4a/bd/df4abd207e53c233928a67e0ce2c71ee.jpg')
-session.add(user6)
-session.commit()
+# user6=User(name='Frank', preference=0, zipCode='zipCode',image='https://s-media-cache-ak0.pinimg.com/236x/df/4a/bd/df4abd207e53c233928a67e0ce2c71ee.jpg')
+# session.add(user6)
+# session.commit()
 
-user7=User(name='George', preference=0, zipCode='zipCode',image='https://s-media-cache-ak0.pinimg.com/originals/2b/91/e7/2b91e763053b29f2b4995f901de34417.jpg')
-session.add(user7)
-session.commit()
+# user7=User(name='George', preference=0, zipCode='zipCode',image='https://s-media-cache-ak0.pinimg.com/originals/2b/91/e7/2b91e763053b29f2b4995f901de34417.jpg')
+# session.add(user7)
+# session.commit()
 
-user8=User(name='Hebe', preference=0, zipCode='zipCode',image='http://kastorskorner.com/wp/wp-content/uploads/2015/06/BUBBLES_01_PR-265x300.jpg')
-session.add(user8)
-session.commit()
+# user8=User(name='Hebe', preference=0, zipCode='zipCode',image='http://kastorskorner.com/wp/wp-content/uploads/2015/06/BUBBLES_01_PR-265x300.jpg')
+# session.add(user8)
+# session.commit()
 
-user9=User(name='Iris', preference=0, zipCode='zipCode',image='https://s-media-cache-ak0.pinimg.com/736x/4b/53/55/4b53554766a2ed8fe948c08b09f37b1b.jpg')
-session.add(user9)
-session.commit()
+# user9=User(name='Iris', preference=0, zipCode='zipCode',image='https://s-media-cache-ak0.pinimg.com/736x/4b/53/55/4b53554766a2ed8fe948c08b09f37b1b.jpg')
+# session.add(user9)
+# session.commit()
 
-user10=User(name='Jason', preference=0, zipCode='zipCode',image='http://comedycentral.mtvnimages.com/images/show_images/TVE_Hub_ShowImage_DrawnTogether.jpg?')
-session.add(user10)
-session.commit()
+# user10=User(name='Jason', preference=0, zipCode='zipCode',image='http://comedycentral.mtvnimages.com/images/show_images/TVE_Hub_ShowImage_DrawnTogether.jpg?')
+# session.add(user10)
+# session.commit()
 
-user1=User(name='Mary', preference=0, zipCode='zipCode',image='http://www.counsellingathome.com/wp-content/uploads/2015/07/Adrian-Holmes-Cartoon-Profile.jpg')
-session.add(user1)
-session.commit()
+# user1=User(name='Mary', preference=0, zipCode='zipCode',image='http://www.counsellingathome.com/wp-content/uploads/2015/07/Adrian-Holmes-Cartoon-Profile.jpg')
+# session.add(user1)
+# session.commit()
+
+
 # add Mappings
 # TODO: ADD MAPPINGS
 

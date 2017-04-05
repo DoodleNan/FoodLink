@@ -4,15 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Touch Slider-->
-
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/friend_card.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/friend_card.css') }}">
     <link rel="stylesheet" href="{{url_for('static',filename='lib/w3.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
     <script>
         function sub1(){
             document.getElementById('agree').value = "agree";
@@ -22,7 +18,6 @@
             document.getElementById('myform').submit();
         }
     </script>
-
 </head>
 <body>
 
@@ -51,43 +46,59 @@
                 <!--<a href="#restaurants">Restaurants</a>-->
                 <a href="#settings">Settings</a>
                 <!--<a href="#about">About</a>-->
-            </div> 
-    </div>
-
-    <!-- bottom bar -->
-    <div class="w3-bar w3-display-bottomleft w3-black w3-mobile bottom">
-        <button class="w3-bar-item w3-button"><i class="fa fa-home"></i></button>
-        <button class="w3-bar-item w3-button"><i class="fa fa-gift"></i></button>
-        <button onclick="document.getElementById('FriendRecommendation').style.display='block'" class="w3-bar-item w3-button"><i class="fa fa-child"></i></button>
+            </div>
     </div>
 
     <!-- Friend recommendation card -->
     <div class="card">
     <div class="container1">
         <div class="friend_recommendation_card">
-            <h2 class="myfont1"><strong>Gotcha!</strong></h2>
-            <img src="{{target.image}}"  style="width:100%">
-            <h1 style="text-align: center;">{{target.name}}</h1>
-            <hr>
             <div class="container2">
-                <button  onclick="sub1()"><i class="fa fa-user-plus" ></i> Add Friend!</button>
-                <button onclick="HideButton('Details')"><i class="fa fa-binoculars"></i>  Details</button>
+                <h2 class="gotcha">GOTCHA!</h2>
+                <img src="{{target.image}}" alt="head">  
+                <div class="name">{{target.name}}</div>               
+            </div>
+            <hr style="width: 90%; margin-left: 5%;"> 
+            <div class="container3">
+                <button onclick='sub1()'><i class="fa fa-user-plus"></i> Add Friend!</button>
+                <button onclick="HideButton('Details')"><i class="fa fa-user-secret"></i>  Details</button>
+                <button onclick="HideButton('Coupon')"><i class="fa fa-money"></i>  Coupon</button>
                 <button onclick="sub2()"><i class="fa fa-user-times"></i>  Later</button>
             </div>
+            <!-- Macthing friend details -->
             <div id="Details" class="details">
-                <p><strong>Gender:</strong> Male</p>
-                <p><strong>Favorite Food:</strong> Chinese Food</p>
-                <p><strong>Description:</strong> I am cute!!!</p>   
+                <hr style="width: 90%; margin-left: 5%;">
+                <table style="border-collapse: separate;">
+                    <tr style="margin-top: 10px; height: 20px;">
+                        <th><p><i class="fa fa-cutlery" style="font-size: 20px; padding-right: 18px;"></i>My Favorite Food: </p></th>
+                        <td style="padding-left: 5px;"><p>{{food}}</p></th>
+                    </tr>
+                    <tr style="margin-top: 10px; height: 10px;">
+                        <th><p><i class="fa fa-building-o" style="font-size: 20px; padding-right: 18px;"></i>Location: </p></td>
+                        <td style="padding-left: 5px;"><p>Atlanta</p></td>
+                    </tr>
+                    <tr style="margin-top: 10px; height: 10px;">
+                        <th><p><i class="fa fa-child" style="font-size: 20px; padding-right: 18px;"></i>Age: </p></td>
+                        <td style="padding-left: 5px;"><p>{{target.age}}</p></td>
+                    </tr>
+                    <tr style="margin-top: 10px; height: 10px;">
+                        <th><p><i class="fa fa-venus-mars" style="font-size: 20px; padding-right: 10px;"></i>Gender: </p></td>
+                        <td style="padding-left: 5px;"><p>{{target.gender}}</p></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- Possible coupon details -->
+            <div id="Coupon" class="coupon">
+                <div style="margin: 10px 0 10px 0;">Add friend to get this coupon!</div> 
+                <img src="http://www.bestfongs.com/coupon.jpg" alt="coupon" style="width:95%">
             </div>
         </div>   
     </div>
     </div>
 
-    <form id="myform" action="{{url_for('deal_friend', user_name=source.name,friend_name=target.name)}}" method="POST">
-            <input type="hidden" id="agree" name="agree" value="disagree">
+     <form id="myform" action="{{url_for('deal_friend', user_name=user_name,friend_name=target.name)}}" method="POST">
+            <input type="hidden" id="agree" name="agree"  value="disagree">
     </form>
-
-
     <!-- Open and close sidenav -->
     <script>
     function openNav() {

@@ -1,17 +1,3 @@
-# For convenience, I built a dummy database for developing and testing. I am also trying best
-# finding userful data sources(it takes more trouble than I thought before).
-# Good luck!
-# 1. connect to a local host
-# 2. type localhost:2000/user1/, a startPage will show
-# 3. click 'get start', redirect to choosePictures page
-# 4. render choosePictures.html using user, restaurant info provided in render_template() function
-# 5. each time you click like or dislike, backend will update preference info and redirect to a new
-# page with a new url(same user, different restaurant and count)
-# 6. when user has chosen 10th preference, please popup a window showing sth like "we have found"
-# a perfeect  match for you, do you want to see? ". And click 'MatchFriend' button, redirect to
-# MatchFriend page (the match algorithm will be done by Rui, but now for convenience it i s just the next user).
-# 7. click agree, reject, ignore will redirect you to choosePictures page
-# If any question, wechat me:)
 from flask import Flask, render_template, request, redirect, url_for, jsonify,flash
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
@@ -26,20 +12,17 @@ application.secret_key = 'cC1YCIWOj9GgWspgNEo2'
 engine = create_engine('sqlite:///test.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
-session = scoped_session(DBSession)
-# session = DBSession()
-# session._model_changes = {}
+# session = scoped_session(DBSession)
+session = DBSession()
+session._model_changes = {}
 
-@application.teardown_request
-def remove_session(ex=None):
-    session.remove()
+# @application.teardown_request
+# def remove_session(ex=None):
+#     session.remove()
 
 # main page
 @application.route('/')
 def Mainpage():
-    # user = session.query(User).filter_by(name='Nan Li').one()
-    # session.delete(user)
-    # session.commit()
     return render_template('login.html')
 
 @application.route('/login/', methods=['POST'])
@@ -47,13 +30,20 @@ def Login():
     name = request.form['name']
     gender = request.form['gender']
     picture = request.form['picture']
-    # latitude = request.form['latitude']
-    # longitude = request.form['longitude']
+    email = request.form['email']
     age = request.form['age']
     user = session.query(User).filter_by(name=name).all()
     if len(user) == 0:
-        newuser = User(name=name, preference=0, image=picture)
+        newuser = User(name=name, preference=0, image=picture, gender=gender, age=age, email=email)
         session.add(newuser)
+        session.commit()
+    else:
+        user[0].name=name
+        user[0].image=picture
+        user[0].age=age
+        user[0].gender=gender
+        user[0].email=email
+        print 'here'
         session.commit()
     return redirect(url_for('StartPage', user_name=name))
 
@@ -176,7 +166,34 @@ def update_preference(user_name):
             break
     if matched == 1:
         target = session.query(User).filter_by(id=friendID).one()
-        return render_template('friend_card.html', source=user, target=target)
+        mask = 0x1
+        cat = 0
+        for i in range(1,11):
+            if mask & target.preference > 0:
+                cat = i
+                break
+            mask = mask << 1
+        if cat == 1:
+            mask = 'Chinese Food'
+        if cat == 2:
+            mask = 'Indian Food'
+        if cat == 3:
+            mask = 'Mexico Food'
+        if cat == 4:
+            mask = 'French Food'
+        if cat == 5:
+            mask = 'Cafe'
+        if cat == 6:
+            mask = 'Spanish Food'
+        if cat == 7:
+            mask = 'American Food'
+        if cat == 8:
+            mask = 'Italian Food'
+        if cat == 9:
+            mask = 'Japanese Food'
+        if cat == 10:
+            mask = 'Korean Food'
+        return render_template('friend_card.html', user_name=user.name, target=target, food=mask)
     else:
         return redirect(url_for('givePicture', user_name=user_name))
 

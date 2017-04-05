@@ -13,7 +13,7 @@
 	<body>
 		<p>This is log in page</p>
 		<div id="status"></div>
-		<button onclick="javascript:login();">Log in Facebook
+		<button onclick="javascript:login();">Logout in Facebook
 		</button>
 
 		<button onclick="javascript:logout();">Logout from Facebook</button>
@@ -21,10 +21,9 @@
 		<form  id="myform"  action="{{ url_for('Login')}}" method='POST'>
 	        <input type="hidden" id="name" name="name"/>
 	        <input type="hidden" id="gender" name="gender"/>
-	        <input type="hidden" id="latitude" name="latitude"/>
-	       	<input type="hidden" id="longitude" name="longitude"/>
 	        <input type="hidden" id="age" name="age"/>
 	        <input type="hidden" id="picture" name="picture"/>
+	        <input type="hidden" id="email" name="email"/>
    		</form>
 		
 		<!-- <script type="text/javascript">
@@ -73,19 +72,16 @@ function login(){
 	FB.login(function(response) {
      if (response.status == 'connected') {
         // window.top.location = 'http://localhost:2000/Bob/';
-        FB.api('/me', {fields: 'id,name,email,gender,picture,age_range, location{location}'}, function(response) {
+        FB.api('/me', {fields: 'id,name,email,gender,age_range, picture.width(1200).height(1200)'}, function(response) {
 			    console.log('Successful login for: ' + response.name);
 			    console.log(response);
 			    document.getElementById('name').value = response.name;
 				document.getElementById('gender').value = response.gender;
-				// document.getElementById('latitude').value = response.location.location.latitude;
-				// document.getElementById('longitude').value = response.location.location.longitude;
 				document.getElementById('age').value = response.age_range.min;
 				document.getElementById('picture').value = response.picture.data.url;
+				document.getElementById('email').value = response.email;
 				document.getElementById('myform').submit();
 		});
-
-		
 
     }else{
         document.getElementById('status').innerHTML = 'Please log ' +

@@ -20,22 +20,16 @@ class Restaurant(Base):
 	coupon = db.Column(db.String(250))
 	zipCode = db.Column(db.String(250))
 
-	# def __init__(self, name):
-	# 	self.name = name
-
 class User(Base):
 	__tablename__ = 'user'
 
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(250),nullable=False, unique=False)
 	preference = db.Column(db.Integer)
-	zipCode=db.Column(db.String(250))
 	image=db.Column(db.String(250))
-
-
-
-	# def __init__(self, name):
-	# 	self.name = name
+	gender=db.Column(db.String(250))
+	age=db.Column(db.Integer)
+	email=db.Column(db.String(250))
 
 class Mapping(Base):
 	__tablename__ = 'mapping'
@@ -47,9 +41,6 @@ class Mapping(Base):
 	couple2 = db.Column(db.String(250))
 	couple3 = db.Column(db.String(250))
 	pending = db.Column(db.Integer)
-	# used = db.Column(db.Integer)
-	# def __init__(self, pending):
-	# 	self.pending = pending
 	used = db.Column(db.Integer)
 @property
 def serializeRestaurant(self):
@@ -72,16 +63,6 @@ def serializeUser(self):
 		'gender': self.gender,
 		'age': self.age,
 		'preference': self.preference,
-		# 'p1': self.p1,
-		# 'p2': self.p2,
-		# 'p3': self.p3,
-		# 'p4': self.p4,
-		# 'p5': self.p5,
-		# 'p6': self.p6,
-		# 'p7': self.p7,
-		# 'p8': self.p8,
-		# 'p9': self.p9,
-		# 'p10': self.p10,
 		'zipCode': self.zipCode
 	}
 
