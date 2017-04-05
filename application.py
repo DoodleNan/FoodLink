@@ -16,7 +16,7 @@ session = scoped_session(DBSession)
 #session = DBSession()
 session._model_changes = {}
 
- @application.teardown_request
+@application.teardown_request
  def remove_session(ex=None):
      session.remove()
 
