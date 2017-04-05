@@ -14,7 +14,7 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = scoped_session(DBSession)
 #session = DBSession()
-session._model_changes = {}
+#session._model_changes = {}
 
 @application.teardown_request
  def remove_session(ex=None):
