@@ -186,8 +186,8 @@ def update_preference(user_name):
                 break
         if matched == 1:
             break
-    matched = 1
-    friendID = 1
+#    matched = 1
+#    friendID = 1
     if matched == 1:
         target = session.query(User).filter_by(id=friendID).one()
         mask = 0x1
