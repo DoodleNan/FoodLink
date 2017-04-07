@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<title>FOODLINK Product Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://scontent-atl3-1.xx.fbcdn.net/v/t31.0-8/17814502_1882722045284338_236734022258450779_o.jpg?oh=8d4dbcc38dcb924546f06daea1f20dd8&oe=595B77E6"); 
+    min-height: 100%;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+</style>
+<body>
+
+<!-- Top Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card-2" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide"">FOODLINK</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+      <a href="#video" class="w3-bar-item w3-button"><i class="fa fa-play-circle"></i> VIDEO</a>
+      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+      <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> WORK</a>
+      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card-2 w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16"><i class="fa fa-remove"></i></a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="#video" onclick="w3_close()" class="w3-bar-item w3-button">VIDEO</a>
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container" id="home">
+  <div class="w3-display-left w3-text-white" style="padding:48px">
+    <img src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/17759817_1882722035284339_3492257958523714719_n.jpg?oh=a96c200b0c13e0709d762b793c212240&oe=595B1009" style="max-width: 10%; margin: 7% 20px 0 10px;">
+    <span class="w3-jumbo w3-hide-small w3-grayscale-min">FOODLINK</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium w3-grayscale-min">FOODLINK</span><br>
+    <span class="w3-large w3-grayscale-min">Link people with food.</span> <!-- tag line -->
+    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off w3-grayscale-min">Learn more about our app</a></p>
+  </div> 
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">ABOUT THE APP</h3>
+  <p class="w3-center w3-large">Key features of our app</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <i class="fa fa-group w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large">Friends</p>
+      <p>Having trouble finding friends share the similar interests with food, especially when you are interested in some special kind of food? Don't worry, we would help you find them, recommending friends based on the food type you like or dislike.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-comments-o w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Foodies</p>
+      <p>You may hate to eat alone. But with our app, you will never need to worry about that. What you need to do is very simple: open FoodLink, select the type of food you like and contact the person we recommend for you.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-gift w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Discounts</p>
+      <p>Spending much money eating outside? Great news! We not only recommend friends, we also offer coupons from your favorite restaurants! Remember, the discounts are only valid when using together with your recommended friends!</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-cutlery w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Featured Restaurants</p>
+      <p>You may feel like to seek out some new restaurants. Via our app, based on your favorite food type, we will directly offer the coupons from the featured restaurants. Specific restaurants with discounts, sounds great!</p>
+    </div>
+  </div>
+</div>
+
+<!-- Video Section  -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="video">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3>Introducing our app.</h3>
+      <p>FoodLink is an mobile application that help people make friends to have meal with.</p>
+      <p>Check the video on the right to learn more!</p>
+      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Detailed Works</a></p>
+    </div>
+    <div class="w3-col m6">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/0MdodCUinL0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Team Section -->
+<div class="w3-container" style="padding:128px 16px" id="team">
+  <h3 class="w3-center">YA ZHOU TIAN TUAN</h3>
+  <p class="w3-center w3-large">The ones who created this app</p>
+  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+    <!-- LI NAN -->
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card-2">
+        <div class="w3-container">
+          <h3>Nan Li</h3>
+          <p class="w3-opacity">Database Developer</p>
+          <p>Resposible for database management. Built the project basic framework and develeoped Facebook login function.</p>
+          <p><i class="fa fa-envelope fa-fw w3-large" style="margin-right: 5px;"></i> Email: nli78@gatech.edu</p>
+        </div>
+      </div>
+    </div>
+    <!-- WANG RUI -->
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card-2">
+        <div class="w3-container">        
+          <h3>Rui Wang</h3>
+          <p class="w3-opacity">Backend Developer</p>
+          <p>Responsible for server management. Intergrated front-end and back-end and implemented detailed server methods.</p>
+          <p><i class="fa fa-envelope fa-fw w3-large" style="margin-right: 5px;"></i> Email: rwang387@gatech.edu</p>
+        </div>
+      </div>
+    </div>
+    <!-- FANG WENXIN -->
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card-2">
+        <div class="w3-container">
+          <h3>Wenxin Fang</h3>
+          <p class="w3-opacity">Web App Developer</p>
+          <p>Responsible for web app page design. Developed the key features of page imageslide and other related pages.</p>
+          <p><i class="fa fa-envelope fa-fw w3-large" style="margin-right: 5px;"></i> Email: wenxin_fang@gatech.edu</p>
+        </div>
+      </div>
+    </div>
+    <!-- WU XIA -->
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card-2">
+        <div class="w3-container">        
+          <h3>Xia WU</h3>
+          <p class="w3-opacity">Web App Developer</p>
+          <p>Responsible for web app and UI design. Developed the key features of page friend recommendation and other related pages.</p>
+          <p><i class="fa fa-envelope fa-fw w3-large" style="margin-right: 5px;"></i> Email: xia.wu@gatech.edu</p>
+        </div>
+      </div>
+    </div>
+    <!-- ZHANG BOKAI -->
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card-2">
+        <div class="w3-container">
+          <h3>Bokai Zhang</h3>
+          <p class="w3-opacity">Android Developer</p>
+          <p>Responsible for android and ios app front-end implementation. Tested the application and developed Facebook login function in webview.</p>
+          <p><i class="fa fa-envelope fa-fw w3-large" style="margin-right: 5px;"></i> Email: zhangbokai@gatech.edu</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Work Section -->
+<div class="w3-container w3-dark-grey" style="padding:128px 16px" id="work">
+  <h3 class="w3-center">OUR WORKS</h3>
+  <p class="w3-center w3-large">What we've done</p>
+
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l3 m6">
+    <!-- login -->
+      <img src="https://scontent-atl3-1.xx.fbcdn.net/v/t31.0-8/17835109_1882721941951015_3979207974376946423_o.jpg?oh=df19bba64340dcca7278881dc4c87018&oe=599614B3" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Login Page">
+    </div>
+    <!-- welcome page -->
+    <div class="w3-col l3 m6">
+      <img src="https://scontent-atl3-1.xx.fbcdn.net/v/t31.0-8/17854991_1882722001951009_1666350787636511592_o.jpg?oh=48c837688c39c973647b89be9c4291bc&oe=5953CB68" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Welcome Page">
+    </div>
+    <div class="w3-col l3 m6">
+    <!-- imageslide -->
+      <img src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/17796463_1882721948617681_2158837038602995025_n.jpg?oh=e18f5e1845fef54ee7a168b29d82530f&oe=594ED96F" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Imageslide Page">
+    </div>
+    <div class="w3-col l3 m6">
+    <!-- friend recommendation -->
+      <img src="https://scontent-atl3-1.xx.fbcdn.net/v/t31.0-8/17814524_1882721951951014_4668752728599225239_o.jpg?oh=5efb7f4ab9c1a9b4d1e42c0a42b0d150&oe=5957431D" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Friend Recommendation">
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col l3 m6">
+    <!-- friend recommendation details-->
+      <img src="https://scontent-atl3-1.xx.fbcdn.net/v/t31.0-8/17834056_1882721945284348_3291751654157501143_o.jpg?oh=be9d7134b85ae09641695dd3f1edd633&oe=595D225B" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Friend Recommendation Details">
+    </div>
+    <div class="w3-col l3 m6">
+    <!-- friend -->
+      <img src="https://scontent-atl3-1.xx.fbcdn.net/v/t31.0-8/17854962_1882721978617678_6365752672902255115_o.jpg?oh=bfa94f74f285ca9bb1ea787054d87f5a&oe=598ED0C2" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Friend Page">
+    </div>
+    <div class="w3-col l3 m6">
+    <!-- coupon -->
+      <img src="https://scontent-atl3-1.xx.fbcdn.net/v/t31.0-8/17834211_1882721988617677_1382423366497925333_o.jpg?oh=3d3b52f1e3b7960ebb4cbbafd4ae5b33&oe=594EFDB6" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Coupon Page">
+    </div>
+    <div class="w3-col l3 m6">
+    <!-- profile -->
+      <img src="https://scontent-atl3-1.xx.fbcdn.net/v/t31.0-8/17854807_1882722008617675_127110489778568865_o.jpg?oh=52cdd89dee135f0f777a905068fdda30&oe=595BF16C" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Profile Page">
+    </div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <p id="caption" class="w3-opacity w3-large"></p>
+    <img id="img01" class="w3-image">    
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+  <h3 class="w3-center">CONTACT</h3>
+  <p class="w3-center w3-large">If have any questions, contact us:</p>
+  <div class="w3-row-padding" style="margin-top:64px">
+      <p style="display: inline-block; margin-left: 34%;"><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Atlanta, US</p>
+      <p style="display: inline-block; margin-left: 5%;"><i class="fa fa-mortar-board fa-fw w3-xxlarge w3-margin-right"></i>Georgia Tech</p>
+      <p style="margin-left: 15%;"><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"></i> Email: nli78@gatech.edu | rwang387@gatech.edu | wenxin_fang@gatech.edu | xia.wu@gatech.edu | zhangbokai@gatech.edu</p>
+      <br>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <p>Created by Ya Zhou Tian Tuan</a></p>
+</footer>
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+    } else {
+        mySidebar.style.display = 'block';
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+</body>
+</html>
+

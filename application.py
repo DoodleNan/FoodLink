@@ -51,6 +51,32 @@ def Login():
 def StartPage(user_name):
     return render_template('welcomepage.html', user_name=user_name)
 
+@application.route('/showtime', methods=['GET', 'POST'])
+def showtime():
+    return render_template('product_website.html')
+@application.route('/gp/<string:user_name>',methods=['GET','POST'])
+#def givePicture(user_name):
+#    if request.method=='GET':
+#        restaurants = session.query(Restaurant).all()
+#        restIndex = random.sample(range(0,9), 5)
+#        resIndex2 = random.sample(range(0,9), 5)
+#        # print restIndex
+#        Restaurants=[]
+#        images=[]
+#        prefer=[]
+#        for i in range(0,5):
+#            Restaurants.append(restaurants[restIndex[i]*10+resIndex2[i]])
+#            index=random.randint(1,3)
+#            prefer.append(restaurants[restIndex[i]*10+resIndex2[i]].category)
+#            if index == 1:
+#                images.append(restaurants[restIndex[i]*10+resIndex2[i]].pic1)
+#            if index == 2:
+#                images.append(restaurants[restIndex[i]*10+resIndex2[i]].pic2)
+#            if index == 3:
+#                images.append(restaurants[restIndex[i]*10+resIndex2[i]].pic3)
+#        # print restIndex, prefer
+#        print images
+#        return render_template('imageslide.html', user_name=user_name, Restaurants=Restaurants, images=images,prefer=prefer,count=5)
 @application.route('/gp/<string:user_name>',methods=['GET','POST'])
 def givePicture(user_name):
     if request.method=='GET':
@@ -73,10 +99,6 @@ def givePicture(user_name):
                 images.append(restaurants[restIndex[i]*10+resIndex2[i]].pic3)
         # print restIndex, prefer
         return render_template('imageslide.html', user_name=user_name, Restaurants=Restaurants, images=images,prefer=prefer,count=5)
-
-
-
-#return redirect(url_for('ChoosePictures', user_name=user_name,ctg=ctg, count=count,prefer=prefer))
 
 @application.route('/update/<string:user_name>',methods=['POST'])
 def update_preference(user_name):
@@ -164,6 +186,8 @@ def update_preference(user_name):
                 break
         if matched == 1:
             break
+    matched = 1
+    friendID = 1
     if matched == 1:
         target = session.query(User).filter_by(id=friendID).one()
         mask = 0x1
@@ -193,7 +217,7 @@ def update_preference(user_name):
             mask = 'Japanese Food'
         if cat == 10:
             mask = 'Korean Food'
-        return render_template('friend_card.html', user_name=user.name, target=target, food=mask)
+        return render_template('friend_card.html', user_name=user_name, target=target, food=mask)
     else:
         return redirect(url_for('givePicture', user_name=user_name))
 
@@ -390,4 +414,4 @@ def deal_coupon(user_name, friend_name):
 
 if __name__ == '__main__':
 	application.debug = True
-	application.run('localhost', port=2000)
+	application.run()

@@ -13,19 +13,24 @@
         var cnt={{count}}
         function set_like(){
             cnt--;
-            if(cnt==4){        
+            if(cnt==4){
+                console.log(cnt);
                 document.getElementById('pre4').value = {{prefer[4]}};
             }
             if(cnt==3){
+                console.log(cnt);
                 document.getElementById('pre3').value = {{prefer[3]}};
             }
             if(cnt==2){
+                console.log(cnt);
                 document.getElementById('pre2').value = {{prefer[2]}};
             }
             if(cnt==1){
+                console.log(cnt);
                 document.getElementById('pre1').value = {{prefer[1]}};
             }
             if(cnt==0){
+                console.log(cnt);
                 document.getElementById('pre0').value = {{prefer[0]}};
                 document.getElementById('myform').submit();
             }
@@ -76,12 +81,10 @@
                 <a href="{{url_for('getSelfProfile', user_name=user_name)}}">Profile</a>
                 <a href="{{url_for('getFriend',user_name=user_name)}}" >Friends</a>
                 <a href="{{url_for('getCoupon',user_name=user_name)}}">Coupons</a>
-                <!--<a href="#restaurants">Restaurants</a>-->
-                <a href="#settings">Settings</a>
-                <!--<a href="#about">About</a>-->
+                <a href="{{url_for('showtime')}}">Our Website</a>
+                <a href="http://localhost:3000/">Log out</a>
             </div> 
     </div>
-
      <!--start padding container -->
     <div class="frame w3-mobile">
         <!-- start imageslide container -->
@@ -89,26 +92,31 @@
             <ul>
                 <li class="pane1">
                     <div class="img" style=" background: url({{images[0]}}) scroll center center;background-size: 100% 100%;"></div>
+                    <p>{{Restaurants[0].name}}</p>
                     <div class="like"></div>
                     <div class="dislike"></div>
                 </li>
                 <li class="pane2">
                      <div class="img" style=" background: url({{images[1]}}) scroll center center;background-size: 100% 100%;"></div>
+                     <p>{{Restaurants[1].name}}</p>
                      <div class="like"></div>
                      <div class="dislike"></div>
                 </li>
                 <li class="pane3">
                      <div class="img" style=" background: url({{images[2]}}) scroll center center;background-size: 100% 100%;"></div>
-                    <div class="like"></div>
+                     <p>{{Restaurants[2].name}}</p>
+                     <div class="like"></div>
                      <div class="dislike"></div>
                 </li>
                 <li class="pane4">
                     <div class="img" style=" background: url({{images[3]}}) scroll center center;background-size: 100% 100%;"></div>
+                     <p>{{Restaurants[3].name}}</p>
                      <div class="like"></div>
                     <div class="dislike"></div>
                 </li>
                 <li class="pane5">
                     <div class="img" style=" background: url({{images[4]}}) scroll center center;background-size: 100% 100%;"></div>
+                     <p>{{Restaurants[4].name}}</p>
                      <div class="like"></div>
                     <div class="dislike"></div>
                 </li>
@@ -118,18 +126,27 @@
     <!-- end imageslide container -->
 
     <!-- bottom bar -->
-    <div class="w3-bar w3-display-bottomleft w3-black w3-mobile" style="height:10%;width: 100%; display: inline;">
+    <!-- <div class="w3-bar w3-display-bottomleft w3-black w3-mobile" style="height:9%;width: 100%; display: inline;">
         <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-home"></i></button>
         <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-gift"></i></button>
         <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-child"></i></button>
-    </div>
+    </div> -->
     
     <!-- Like&Dislike Button -->
     <div class="actions">
         <a href="#" class="dislike" onclick='set_dislike()' ><i></i></a>
         <a href="#" class="like" onclick='set_like()'><i></i></a>
     </div>  
-   
+       <p></p>
+       <footer class="w3-container w3-center w3-opacity w3-xlarge">
+          <i class="fa fa-facebook-official w3-hover-opacity" onclick="facebook()"></i>
+          <i class="fa fa-instagram w3-hover-opacity" 
+          onclick="instagram()"></i>
+          <i class="fa fa-snapchat w3-hover-opacity" onclick="snapchat()"></i>
+          <i class="fa fa-pinterest-p w3-hover-opacity" onclick="pinterest()"></i>
+          <i class="fa fa-twitter w3-hover-opacity" onclick="twitter()"></i>
+          <i class="fa fa-linkedin w3-hover-opacity" onclick="linkedin()"></i>
+    </footer>
    <form  id="myform"  action="{{ url_for('update_preference', user_name=user_name)}}" method='POST'>
         <input type="hidden" id="pre0" name="pre0" value={{prefer[0]}}/>
         <input type="hidden" id="pre1" name="pre1" value={{prefer[1]}}/>
@@ -162,6 +179,24 @@
     function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     }
+    function facebook(){
+    window.top.location = "https://www.facebook.com";
+}
+function instagram(){
+    window.top.location = "https://www.instagram.com";
+}
+function snapchat(){
+    window.top.location = "https://www.snapchat.com";
+}
+function pinterest(){
+    window.top.location = "https://www.pinterest.com";
+}
+function twitter(){
+    window.top.location = "https://www.twitter.com";
+}
+function linkedin(){
+    window.top.location = "https://www.linkedin.com";
+}
     </script>
 
 

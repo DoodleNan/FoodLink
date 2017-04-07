@@ -9,32 +9,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 </head>
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
 <body>
 
-    <div class="w3-container">
-
+    <!-- Top Menu -->
+    <div class="topmenu" style="height: 13%;">
         <div class="top">
             <!-- menuicon -->
-            <span class="menuicon" onclick="openNav()">
+            <span class="menuicon" onclick="openNav()"">
                 <i class="fa fa-bars"></i>
             </span>
-            <!-- header -->
-            <div class="header">Profile</div>
+            <!-- header -->       
+            <div class="header" style="padding-left: 20%;">Profile</div>             
         </div>
-        <div class="w3-card-1 w3-center" style="height:290px; width:auto">
-            <img src="{{user.image}}" style="width:300px">
-        </div>
+    </div>
 
-        <div class="w3-card-1">
-            <header class="w3-container w3-center">
-                <hr>
-            </header>
-            <div class="w3-container w3-left">
-                <p>{{user_name}}</p>
-                <p>Description: Can not live without Coffee!</p>
-                <p>Email: {{user.email}}</p>
-                <p>Tel: It is secret!</p>
+    <div class="w3-container" style="margin-top: 14%;">
+        <div class="w3-white w3-text-grey w3-card-4" style="margin-top: 10%; overflow: scroll;">
+            <div class="w3-display-container">
+                <img src="{{user.image}}" style="width: 100%;" alt="head_image">  <!-- head image -->
+                <h2 class="w3-text-black" style="text-align: center;">{{user_name}}</h2>  <!-- user name -->
+            </div>
+            <hr style="width: 90%; margin-left: 5%;">
+            <div class="w3-container" style="margin-top: 3%;"> <!-- description -->
+                <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Email: {{user.email}}</p>
+                <p><i class="fa fa-cutlery fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Favourite Food: Cheese Cakes</p>
+                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Description: Life sucks, Enjoy!</p>
+                <p><i class="fa fa-phone fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Tel: Please Guess</p>
             </div>
         </div>
     </div>
@@ -49,18 +54,17 @@
                 <a href="{{url_for('getSelfProfile',user_name=user_name)}}">Profile</a>
                 <a href="{{url_for('getFriend',user_name=user_name)}}" >Friends</a>
                 <a href="{{url_for('getCoupon',user_name=user_name)}}">Coupons</a>
-                <!--<a href="#restaurants">Restaurants</a>-->
-                <a href="#settings">Settings</a>
-                <!--<a href="#about">About</a>-->
+                <a href="{{url_for('showtime')}}">Our Website</a>
+                <a href="http://localhost:3000/">Log out</a>
             </div>
     </div>
 
     <!-- bottom bar -->
-    <div class="w3-bar w3-display-bottomleft w3-black w3-mobile" style="height:10%;width: 100%; display: inline;">
+<!--     <div class="w3-bar w3-display-bottomleft w3-black w3-mobile" style="height:10%;width: 100%; display: inline;">
         <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-home"></i></button>
         <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-gift"></i></button>
         <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-child"></i></button>
-    </div>
+    </div> -->
 
     <!-- Open and close sidenav -->
     <script>

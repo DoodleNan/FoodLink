@@ -12,7 +12,7 @@ body {
 /*for welcome page*/
 /*background image*/
 #background {
-    height: 90%;
+    /*height: 100%;*/
     width: 100%;
     position: relative;
     background-image: url("../img/background.jpg");
@@ -86,7 +86,7 @@ body {
     font-size: 40px;
     font-family: "Amatic SC", sans-serif;
     width: 50%;
-    height: 12%;
+    height: 10%;
     transition: all 0.5s;
     cursor: pointer;
     margin: 3% 25% 10% 25%;

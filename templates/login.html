@@ -4,20 +4,46 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<!--Touch Slider-->
-    	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/welcomepage.css') }}">
+    	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/imageslide.css') }}">
     	<link rel="stylesheet" href="{{url_for('static',filename='lib/w3.css')}}">
     	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 	</head>
 
-	<body>
-		<p>This is log in page</p>
+	<body style="background-color: #F7F9F9;">
+
+		<!-- head -->
+		<h1 style="color: #85C1E9;font-family: courier;font-size: 50px;text-align: center; padding-top: 15%">
+			FOODLINK
+		</h1>
+
+		<!-- tag line -->
+		<p style="text-align: center; font-size: 20px;">Food + Friends</p>
+
+		<!-- logo -->
+		<img src="{{ url_for('static',filename='img/logo.png') }}" alt="logo" style="max-width: 50%; max-height: 50%; margin: 10px 25%;">
 		<div id="status"></div>
-		<button onclick="javascript:login();">Logout in Facebook
-		</button>
 
-		<button onclick="javascript:logout();">Logout from Facebook</button>
-
+		<!-- login/out button -->
+		<!-- login button -->
+		<div>
+			<button onclick="javascript:login();" style="color: #85C1E9; background-color: #FDFEFE; text-align: center; border: 2px solid #85C1E9; border-radius: 20px; cursor: pointer; font-size: 20px; width: 70%; height: 20%; margin-left: 15%;">Login with <i class="fa fa-facebook-square" style="color: #3b5998;"></i>
+			</button>
+		</div>
+		<!-- logout button -->
+		<!-- <div>
+			<button onclick="javascript:logout();" style="color: #85C1E9; background-color: #FDFEFE; text-align: center; border: 2px solid #85C1E9; border-radius: 20px; cursor: pointer; font-size: 20px; width: 70%; height: 20%; margin: 10px 15% 0 15%;">Logout from <i class="fa fa-facebook-square" style="color: #3b5998;"></i>
+			</button>
+		</div> -->
+		<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-xlarge">
+		  <i class="fa fa-facebook-official w3-hover-opacity" onclick="facebook()"></i>
+		  <i class="fa fa-instagram w3-hover-opacity" 
+		  onclick="instagram()"></i>
+		  <i class="fa fa-snapchat w3-hover-opacity" onclick="snapchat()"></i>
+		  <i class="fa fa-pinterest-p w3-hover-opacity" onclick="pinterest()"></i>
+		  <i class="fa fa-twitter w3-hover-opacity" onclick="twitter()"></i>
+		  <i class="fa fa-linkedin w3-hover-opacity" onclick="linkedin()"></i>
+		</footer>
 		<form  id="myform"  action="{{ url_for('Login')}}" method='POST'>
 	        <input type="hidden" id="name" name="name"/>
 	        <input type="hidden" id="gender" name="gender"/>
@@ -109,6 +135,25 @@ function logout(){
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1160649050710309";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+function facebook(){
+	window.top.location = "https://www.facebook.com";
+}
+function instagram(){
+	window.top.location = "https://www.instagram.com";
+}
+function snapchat(){
+	window.top.location = "https://www.snapchat.com";
+}
+function pinterest(){
+	window.top.location = "https://www.pinterest.com";
+}
+function twitter(){
+	window.top.location = "https://www.twitter.com";
+}
+function linkedin(){
+	window.top.location = "https://www.linkedin.com";
+}
 </script>
 
 	</body>
