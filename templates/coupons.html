@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Touch Slider-->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/coupons.css') }}">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/imageslide.css') }}">
     <link rel="stylesheet" href="{{url_for('static',filename='lib/w3.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,10 +33,10 @@
             <div class="header">Coupons</div>
         </div>
 
-        <div class="w3-card-5">
+        <div class="ScrollStyle">
             {%for item in rec_set%}
                 <div class="w3-container">
-                    <img src="{{item['rec'].pic1}}" class="w3-left w3-margin-right" style="width:150px">
+                    <img src="{{item['rec'].pic1}}" class="w3-left w3-margin-right" style="width:150px; height: 120px">
                     <p>{{item['rec'].name}}</p>
                     <p>sharing with {{item['friend']}}</p>
                     <form action="{{url_for('deal_coupon',user_name=user_name,friend_name=item['friend'])}}" method="POST">
@@ -45,6 +46,7 @@
                 </div>
                 <br>
             {% endfor %}
+        </div>
         </div>
 
     <!-- Hidden Sidenav (reveals when clicked on menu icon)-->
