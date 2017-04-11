@@ -18,46 +18,108 @@
         }
     </script>
 
+<style>
+    html,body,h1,h2,h3,h4,h5,h6,p {font-family: "Roboto", sans-serif}
 
+    body {
+        overflow: scroll;
+    }
+    .content {
+        z-index:1;
+        left:0;
+        top:0;
+        margin-top: 23%;
+}
+
+.ScrollStyle
+{
+    overflow-y: scroll;
+}
+
+</style>
+
+<script>
+    var description = ["World first gourmet~", 
+                       "Cannot live with out deli!",
+                       "To do something amazing!", 
+                       "What for lunch? Errr...",
+                       "Never doubt that you are valuable and powerful.",
+                       "Looking for nice chinese food.",
+                       "I am the burger king.",
+                       "BBQ tonight?",
+                       "Always loving sushi.",
+                       "Georgia Tech first foodie",
+                       "Want some ice-cream and cheese cake!!",
+                       "Embrace your life",
+                       "All is well",
+                       "Just keep the moment",
+                       "Be yourself, be who you wanna be and do you wanna do.",
+                       "Hello, World!",
+                       "Simple is best.",
+                       "Better late than never.",
+                       ];
+
+
+    function des(){
+        var index=Math.floor((Math.random() * 17));
+        return description[index];
+    }
+
+</script>
 </head>
 <body>
 
-    <div class="w3-container">
+    <!-- <div class="w3-container">
 
-        <div class="top" style="height:80px">
-            <!-- menuicon -->
-            <span class="menuicon" onclick="openNav()">
-                <i class="fa fa-bars"></i>
-            </span>
-            <!-- header -->
-            <div class="header">Friends</div>
+        <div class="top" style="height:80px"> -->
+        <!-- Top Menu -->
+        <div class="topmenu" style="height: 13%;">
+            <div class="top">
+                <!-- menuicon -->
+                <span class="menuicon" onclick="openNav()">
+                    <i class="fa fa-bars"></i>
+                </span>
+                <!-- header -->
+                <div class="header">Friends</div>
+            </div>
         </div>
 
-        <div class="ScrollStyle">
-         <div class="w3-card-5">
+    <div class="ScrollStyle">
+    <div class="w3-container content">
+        <!-- friend list -->
+        <div style="height: 1.5%; background-color: #EAEDED;"><p style="font-size: 15px; padding-left: 5px;">Friends</p>
+        </div>
+        <div class="w3-card-5" style="margin-top: 8px;">
             {% for f in friendlist %}
                 <div class="w3-container" id="{{f.name}}" onClick="show_profile(this.id)">
                     <img src="{{f.image}}" class="w3-left w3-circle w3-margin-right" style="width:80px">
-                    <p>{{f.name}}</p>
+                    <p style="font-size: 18px;">{{f.name}}</p>
+                    <p style="color: #9E9E9E;">
+                        <script>
+                           document.write(des())
+                        </script>
+                    </p>
                 </div>
                 <hr>
             {% endfor %}
          </div>
-         <p>Friend Request</p>
-         <div class="w3-card-5">
+         <!-- <p>Friend Request</p> -->
+         <!-- <div class="w3-card-5"> -->
+         <div style="height: 1.5%; background-color: #EAEDED;"><p style="font-size: 15px; padding-left: 5px;">Friends Requests</p>
+         </div>
+         <div class="w3-card-5" style="margin-top: 5%;">
             {% for p in pendlist %}
                 <div class="w3-container" >
                     <img src="{{p.image}}" class="w3-left w3-circle w3-margin-right" style="width:80px">
-                    <p>{{p.name}}</p>
-                    <a href="{{url_for('add_friend',user_name=user_name,friend_name=p.name)}}">ADD</a>
-                    <a href="{{url_for('deny_friend',user_name=user_name,friend_name=p.name)}}">LATER</a>
+                    <p style="font-size: 18px;">{{p.name}}</p>
+                    <button style="width: 80px; display: inline-block; font-size: 12px; border: 2px solid #C0392B;background-color: #C0392B;"><a href="{{url_for('add_friend',user_name=user_name,friend_name=p.name)}}" style="color: #FDFEFE; font-size: 15px;  padding: 3px 5px 3px 5px; text-align: center; ">Comfirm</a></button>
+                    <button style="width: 80px; display: inline-block; font-size: 12px; border: 2px solid #D5DBDB;background-color: #D5DBDB;"><a href="{{url_for('deny_friend',user_name=user_name,friend_name=p.name)}}" style="color: #17202A; font-size: 15px;  padding: 3px 5px 3px 5px; text-align: center; ">Later</a></button>
                 </div>
                 <hr>
             {% endfor %}
          </div>
-         </div>
-         <p></p>
-    <p></p>
+    </div>
+    </div>
     <form id="myform"  action="{{ url_for('getFriendProfile', user_name=user_name)}}" method='POST'>
         <input type="hidden" id="friend" name="friend"/>
     </form> 
@@ -72,7 +134,7 @@
                 <a href="{{url_for('getSelfProfile',user_name=user_name)}}">Profile</a>
                 <a href="{{url_for('getFriend',user_name=user_name)}}" >Friends</a>
                 <a href="{{url_for('getCoupon',user_name=user_name)}}">Coupons</a>
-                <a href="{{url_for('showtime')}}">Website</a>
+                <a href="{{url_for('showtime')}}">About</a>
                 <a href="{{url_for('Mainpage')}}">Log out</a>
             </div>
     </div>

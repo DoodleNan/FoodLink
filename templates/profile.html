@@ -13,9 +13,64 @@
 </head>
 <style>
     html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    body {
+        overflow: scroll;
+    }
+    .ScrollStyle{
+        overflow-y: scroll;
+    }
 </style>
 <body>
+    <script type="text/javascript">
+    var foo = ["cheese cake",
+                "cafe",
+                "sushi",
+                "burger",
+                "taco",
+                "burrito",
+                "sandwich",
+                "fries",
+                "hash brown",
+                "chicken wings",
+                "chips",
+                "pasta",
+                "curry",
+                "noddles",
+                "pizza",
+                "yogurt",
+                ]
+    
+    function food(){
+        var index=Math.floor((Math.random() * 15));
+        return foo[index];
+    }
 
+    var description = ["World first gourmet~", 
+                       "Cannot live with out deli!",
+                       "To do something amazing!", 
+                       "What for lunch? Errr...",
+                       "You are valuable and powerful.",
+                       "Looking for nice chinese food.",
+                       "I am the burger king.",
+                       "BBQ tonight?",
+                       "Always loving sushi.",
+                       "Georgia Tech first foodie",
+                       "Want some ice-cream!!",
+                       "Embrace your life",
+                       "All is well",
+                       "Just keep the moment",
+                       "Be yourself and live well.",
+                       "Hello, World!",
+                       "Simple is best.",
+                       "Better late than never.",
+                       ];
+
+
+    function des(){
+        var index=Math.floor((Math.random() * 17));
+        return description[index];
+    }
+</script>
     <!-- Top Menu -->
     <div class="topmenu" style="height: 13%;">
         <div class="top">
@@ -28,23 +83,34 @@
         </div>
     </div>
 
-    <div class="w3-container" style="margin-top: 14%;">
-        <div class="w3-white w3-text-grey w3-card-4" style="margin-top: 10%; overflow: scroll;">
-            <div class="w3-display-container">
-                <img src="{{user.image}}" style="width: 100%;" alt="head_image">  <!-- head image -->
-                <h2 class="w3-text-black" style="text-align: center;">{{user_name}}</h2>  <!-- user name -->
-            </div>
-            <hr style="width: 90%; margin-left: 5%;">
-            <div class="w3-container" style="margin-top: 3%;"> <!-- description -->
-                <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Email: {{user.email}}</p>
-                <p><i class="fa fa-cutlery fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Favourite Food: Cheese Cakes</p>
-                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Description: Life sucks, Enjoy!</p>
-                <p><i class="fa fa-phone fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Tel: Please Guess</p>
+    <!-- <div class="w3-container" style="margin-top: 14%;">
+        <div class="w3-white w3-text-grey w3-card-4" style="margin-top: 10%; overflow: scroll;"> -->
+    <!-- profile card -->
+    <div class="ScrollStyle">   
+        <div class="w3-container" style="margin-top: 16%;">
+            <div class="w3-white w3-text-grey w3-card-4" style="margin-top: 10%;">
+                <div class="w3-display-container">
+                    <img src="{{user.image}}" style="width: 100%;" alt="head_image">  <!-- head image -->
+                    <h2 class="w3-text-black" style="text-align: center;">{{user_name}}</h2>  <!-- user name -->
+                </div>
+                <hr style="width: 90%; margin-left: 5%;">
+                <div class="w3-container" style="margin-top: 3%;"> <!-- description -->
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Email: {{user.email}}</p>
+                    <p><i class="fa fa-cutlery fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Favourite Food:
+                    <script type="text/javascript">
+                        document.write(food())
+                    </script> 
+                    </p>
+                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Description: 
+                    <script type="text/javascript">
+                        document.write(des())
+                    </script>
+                    </p>
+                    <p><i class="fa fa-phone fa-fw w3-margin-right w3-large" style="color: #85C1E9;"></i>Tel: Please Guess</p>
+                </div>
             </div>
         </div>
     </div>
-    <p></p>
-    <p></p>
     <!-- Hidden Sidenav (reveals when clicked on menu icon)-->
     <div class="menu" id="mySidenav">
             <a href="javascript:void(0)" class="hideicon" onclick="closeNav()">
@@ -55,7 +121,7 @@
                 <a href="{{url_for('getSelfProfile',user_name=user_name)}}">Profile</a>
                 <a href="{{url_for('getFriend',user_name=user_name)}}" >Friends</a>
                 <a href="{{url_for('getCoupon',user_name=user_name)}}">Coupons</a>
-                <a href="{{url_for('showtime')}}">Website</a>
+                <a href="{{url_for('showtime')}}">About</a>
                 <a href="{{url_for('Mainpage')}}">Log out</a>
             </div>
     </div>

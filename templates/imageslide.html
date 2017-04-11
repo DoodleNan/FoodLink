@@ -17,7 +17,11 @@
     <script type="text/javascript" src="{{url_for('static',filename='js/jquery.jTinder.js')}}"></script>
 
 </head>
-
+<style>
+    body {
+        overflow: scroll;
+    }
+</style>
 <body>
 
     <!-- Top Menu -->
@@ -44,7 +48,7 @@
                 <a href="{{url_for('getCoupon',user_name=user_name)}}">Coupons</a>
                 <!--<a href="#restaurants">Restaurants</a>-->
 <!--                <a href="#settings">Settings</a>-->
-                <a href="{{url_for('showtime')}}">Website</a>
+                <a href="{{url_for('showtime')}}">About</a>
                 <a href="{{url_for('Mainpage')}}">Log out</a>
                 <!--<a href="#about">About</a>-->
             </div>
@@ -57,31 +61,36 @@
             <ul>
                 <li class="pane1">
                     <div class="img" style=" background: url({{images[0]}}) scroll center center;background-size: 100% 100%;"></div>
-                    <p>{{Restaurants[0].name}}</p>
+                    <!-- <p>{{Restaurants[0].name}}</p> -->
+                    <p style="font-size: 15px; margin-top: 10%;">{{Restaurants[0].name}}</p>
                     <div class="like"></div>
                     <div class="dislike"></div>
                 </li>
                 <li class="pane2">
                      <div class="img" style=" background: url({{images[1]}}) scroll center center;background-size: 100% 100%;"></div>
-                     <p>{{Restaurants[1].name}}</p>
+                     <!-- <p>{{Restaurants[1].name}}</p> -->
+                     <p style="font-size: 15px; margin-top: 10%;">{{Restaurants[1].name}}</p>
                      <div class="like"></div>
                      <div class="dislike"></div>
                 </li>
                 <li class="pane3">
                      <div class="img" style=" background: url({{images[2]}}) scroll center center;background-size: 100% 100%;"></div>
-                     <p>{{Restaurants[2].name}}</p>
+                     <!-- <p>{{Restaurants[2].name}}</p> -->
+                     <p style="font-size: 15px; margin-top: 10%;">{{Restaurants[2].name}}</p>
                     <div class="like"></div>
                      <div class="dislike"></div>
                 </li>
                 <li class="pane4">
                     <div class="img" style=" background: url({{images[3]}}) scroll center center;background-size: 100% 100%;"></div>
-                    <p>{{Restaurants[3].name}}</p>
+                    <!-- <p>{{Restaurants[3].name}}</p> -->
+                    <p style="font-size: 15px; margin-top: 10%;">{{Restaurants[3].name}}</p>
                      <div class="like"></div>
                     <div class="dislike"></div>
                 </li>
                 <li class="pane5">
                     <div class="img" style=" background: url({{images[4]}}) scroll center center;background-size: 100% 100%;"></div>
-                    <p>{{Restaurants[4].name}}</p>
+                    <!-- <p>{{Restaurants[4].name}}</p> -->
+                    <p style="font-size: 15px; margin-top: 10%;">{{Restaurants[4].name}}</p>
                      <div class="like"></div>
                     <div class="dislike"></div>
                 </li>
