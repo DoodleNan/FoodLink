@@ -58,7 +58,7 @@
                 <div class="name">{{target.name}}</div>               
             </div>
             <hr style="width: 90%; margin-left: 5%;"> 
-            <div class="container3">
+            <div class="container3" style="font-family: courier;">
                 <button onclick='sub1()'><i class="fa fa-user-plus"></i> Add Friend!</button>
                 <button onclick="HideButton('Details')"><i class="fa fa-user-secret"></i>  Details</button>
                 <button onclick="HideButton('Coupon')"><i class="fa fa-money"></i>  Coupon</button>
@@ -67,9 +67,9 @@
             <!-- Macthing friend details -->
             <div id="Details" class="details">
                 <hr style="width: 90%; margin-left: 5%;">
-                <table style="border-collapse: separate;">
+                <table style="border-collapse: separate; font-family: courier;">
                     <tr style="margin-top: 10px; height: 20px;">
-                        <th><p><i class="fa fa-cutlery" style="font-size: 20px; padding-right: 18px;"></i>My Favorite Food: </p></th>
+                        <th><p><i class="fa fa-cutlery" style="font-size: 20px; padding-right: 18px;"></i>Favorite Food: </p></th>
                         <td style="padding-left: 5px;"><p>{{food}}</p></th>
                     </tr>
                     <tr style="margin-top: 10px; height: 10px;">
@@ -87,7 +87,7 @@
                 </table>
             </div>
             <!-- Possible coupon details -->
-            <div id="Coupon" class="coupon">
+            <div id="Coupon" class="coupon" style="font-family: courier;"> 
                 <div style="margin: 10px 0 10px 0;">Add friend to get this coupon!</div> 
                 <img src="http://www.bestfongs.com/coupon.jpg" alt="coupon" style="width:95%">
             </div>

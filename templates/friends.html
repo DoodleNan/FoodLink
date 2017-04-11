@@ -100,6 +100,9 @@
                         </script>
                     </p>
                 </div>
+                    <form id="myform"  action="{{ url_for('getFriendProfile', user_name=f.name)}}" method='POST'>
+                        <input type="hidden" id="friend" name="friend"/>
+                    </form>
                 <hr>
             {% endfor %}
          </div>
@@ -112,7 +115,7 @@
                 <div class="w3-container" >
                     <img src="{{p.image}}" class="w3-left w3-circle w3-margin-right" style="width:80px">
                     <p style="font-size: 18px;">{{p.name}}</p>
-                    <button style="width: 80px; display: inline-block; font-size: 12px; border: 2px solid #C0392B;background-color: #C0392B;"><a href="{{url_for('add_friend',user_name=user_name,friend_name=p.name)}}" style="color: #FDFEFE; font-size: 15px;  padding: 3px 5px 3px 5px; text-align: center; ">Comfirm</a></button>
+                    <button style="width: 80px; display: inline-block; font-size: 12px; border: 2px solid #C0392B;background-color: #C0392B;"><a href="{{url_for('add_friend',user_name=user_name,friend_name=p.name)}}" style="color: #FDFEFE; font-size: 15px;  padding: 3px 5px 3px 4px; text-align: center; ">Comfirm</a></button>
                     <button style="width: 80px; display: inline-block; font-size: 12px; border: 2px solid #D5DBDB;background-color: #D5DBDB;"><a href="{{url_for('deny_friend',user_name=user_name,friend_name=p.name)}}" style="color: #17202A; font-size: 15px;  padding: 3px 5px 3px 5px; text-align: center; ">Later</a></button>
                 </div>
                 <hr>
@@ -120,9 +123,7 @@
          </div>
     </div>
     </div>
-    <form id="myform"  action="{{ url_for('getFriendProfile', user_name=user_name)}}" method='POST'>
-        <input type="hidden" id="friend" name="friend"/>
-    </form> 
+     
     
     <!-- Hidden Sidenav (reveals when clicked on menu icon)-->
     <div class="menu" id="mySidenav">
@@ -140,11 +141,11 @@
     </div>
 
     <!-- bottom bar -->
-    <div class="w3-bar w3-display-bottomleft w3-black w3-mobile" style="height:10%;width: 100%; display: inline;">
+    <!-- <div class="w3-bar w3-display-bottomleft w3-black w3-mobile" style="height:10%;width: 100%; display: inline;">
         <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-home"></i></button>
         <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-gift"></i></button>
         <button class="w3-bar-item w3-button w3-center" style="font-size:36px;width:33.333%;"><i class="fa fa-child"></i></button>
-    </div>
+    </div> -->
 
     <!-- Open and close sidenav -->
     <script>
