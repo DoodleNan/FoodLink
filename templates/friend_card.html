@@ -39,11 +39,11 @@
                 <i class="fa fa-remove"></i>
             </a> 
             <div class="text"> 
-                  <a href="{{url_for('givePicture', user_name=user_name)}}">Home</a>
+                <a href="{{url_for('givePicture', user_name=user_name)}}">Home</a>
                 <a href="{{url_for('getSelfProfile',user_name=user_name)}}">Profile</a>
                 <a href="{{url_for('getFriend',user_name=user_name)}}" >Friends</a>
                 <a href="{{url_for('getCoupon',user_name=user_name)}}">Coupons</a>
-                <a href="{{url_for('showtime')}}">Website</a>
+                <a href="{{url_for('showtime')}}">About</a>
                 <a href="{{url_for('Mainpage')}}">Log out</a>
             </div>
     </div>
@@ -58,37 +58,37 @@
                 <div class="name">{{target.name}}</div>               
             </div>
             <hr style="width: 90%; margin-left: 5%;"> 
-            <div class="container3" style="font-family: courier;">
-                <button onclick='sub1()'><i class="fa fa-user-plus"></i> Add Friend!</button>
-                <button onclick="HideButton('Details')"><i class="fa fa-user-secret"></i>  Details</button>
-                <button onclick="HideButton('Coupon')"><i class="fa fa-money"></i>  Coupon</button>
-                <button onclick="sub2()"><i class="fa fa-user-times"></i>  Later</button>
+            <div class="container3">
+                <button onclick="sub1()" style="font-family: courier;"><i class="fa fa-user-plus"></i> Add Friend!</button>
+                <button onclick="HideButton('Details')" style="font-family: courier;"><i class="fa fa-user-secret"></i>  Details</button>
+                <button onclick="HideButton('Coupon')" style="font-family: courier;"><i class="fa fa-money"></i>  Coupon</button>
+                <button onclick="sub2()" style="font-family: courier;"><i class="fa fa-user-times"></i>  Later</button>
             </div>
             <!-- Macthing friend details -->
             <div id="Details" class="details">
                 <hr style="width: 90%; margin-left: 5%;">
                 <table style="border-collapse: separate; font-family: courier;">
                     <tr style="margin-top: 10px; height: 20px;">
-                        <th><p><i class="fa fa-cutlery" style="font-size: 20px; padding-right: 18px;"></i>Favorite Food: </p></th>
+                        <th><p><i class="fa fa-cutlery" style="font-size: 19px; padding-right: 18px;"></i>Favorite Food: </p></th>
                         <td style="padding-left: 5px;"><p>{{food}}</p></th>
                     </tr>
                     <tr style="margin-top: 10px; height: 10px;">
-                        <th><p><i class="fa fa-building-o" style="font-size: 20px; padding-right: 18px;"></i>Location: </p></td>
+                        <th><p><i class="fa fa-building-o" style="font-size: 19px; padding-right: 18px;"></i>Location: </p></td>
                         <td style="padding-left: 5px;"><p>Atlanta</p></td>
                     </tr>
                     <tr style="margin-top: 10px; height: 10px;">
-                        <th><p><i class="fa fa-child" style="font-size: 20px; padding-right: 18px;"></i>Age: </p></td>
+                        <th><p><i class="fa fa-child" style="font-size: 19px; padding-right: 18px;"></i>Age: </p></td>
                         <td style="padding-left: 5px;"><p>{{target.age}}</p></td>
                     </tr>
                     <tr style="margin-top: 10px; height: 10px;">
-                        <th><p><i class="fa fa-venus-mars" style="font-size: 20px; padding-right: 10px;"></i>Gender: </p></td>
+                        <th><p><i class="fa fa-venus-mars" style="font-size: 19px; padding-right: 10px;"></i>Gender: </p></td>
                         <td style="padding-left: 5px;"><p>{{target.gender}}</p></td>
                     </tr>
                 </table>
             </div>
             <!-- Possible coupon details -->
             <div id="Coupon" class="coupon" style="font-family: courier;"> 
-                <div style="margin: 10px 0 10px 0;">Add friend to get this coupon!</div> 
+                <div style="margin: 10px 0 10px 0;">Add friend to get this COUPON!</div> 
                 <img src="http://www.bestfongs.com/coupon.jpg" alt="coupon" style="width:95%">
             </div>
         </div>   

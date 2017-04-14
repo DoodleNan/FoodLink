@@ -5,18 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Touch Slider-->
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/coupons.css') }}">
-     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/imageslide.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/imageslide.css') }}">
     <link rel="stylesheet" href="{{url_for('static',filename='lib/w3.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <script>
-        function show_profile(fid){
-            document.getElementById('friend').value=fid
-            document.getElementById('myform').submit();
-        }
-    </script>
 
 <style>
     html,body,h1,h2,h3,h4,h5,h6,p {font-family: "Roboto", sans-serif}
@@ -38,40 +31,9 @@
 
 </style>
 
-<script>
-    var description = ["World first gourmet~", 
-                       "Cannot live with out deli!",
-                       "To do something amazing!", 
-                       "What for lunch? Errr...",
-                       "Never doubt that you are valuable and powerful.",
-                       "Looking for nice chinese food.",
-                       "I am the burger king.",
-                       "BBQ tonight?",
-                       "Always loving sushi.",
-                       "Georgia Tech first foodie",
-                       "Want some ice-cream and cheese cake!!",
-                       "Embrace your life",
-                       "All is well",
-                       "Just keep the moment",
-                       "Be yourself, be who you wanna be and do you wanna do.",
-                       "Hello, World!",
-                       "Simple is best.",
-                       "Better late than never.",
-                       ];
-
-
-    function des(){
-        var index=Math.floor((Math.random() * 17));
-        return description[index];
-    }
-
-</script>
 </head>
 <body>
 
-    <!-- <div class="w3-container">
-
-        <div class="top" style="height:80px"> -->
         <!-- Top Menu -->
         <div class="topmenu" style="height: 13%;">
             <div class="top">
@@ -84,7 +46,7 @@
             </div>
         </div>
 
-    <div class="ScrollStyle">
+    <div class="ScrollStyle" style="height: 100%;">
     <div class="w3-container content">
         <!-- friend list -->
         <div style="height: 1.5%; background-color: #EAEDED;"><p style="font-size: 15px; padding-left: 5px;">Friends</p>
@@ -99,18 +61,18 @@
                            document.write(des())
                         </script>
                     </p>
-                </div>
                     <form id="myform"  action="{{ url_for('getFriendProfile', user_name=f.name)}}" method='POST'>
                         <input type="hidden" id="friend" name="friend"/>
                     </form>
+                </div>
                 <hr>
+
             {% endfor %}
          </div>
-         <!-- <p>Friend Request</p> -->
-         <!-- <div class="w3-card-5"> -->
-         <div style="height: 1.5%; background-color: #EAEDED;"><p style="font-size: 15px; padding-left: 5px;">Friends Requests</p>
-         </div>
-         <div class="w3-card-5" style="margin-top: 5%;">
+        <!-- pending friend list -->
+        <div style="height: 1.5%; background-color: #EAEDED;"><p style="font-size: 15px; padding-left: 5px;">Friends Requests</p>
+        </div>
+        <div class="w3-card-5" style="margin-top: 5%;">
             {% for p in pendlist %}
                 <div class="w3-container" >
                     <img src="{{p.image}}" class="w3-left w3-circle w3-margin-right" style="width:80px">
@@ -120,7 +82,7 @@
                 </div>
                 <hr>
             {% endfor %}
-         </div>
+        </div>
     </div>
     </div>
      
@@ -155,6 +117,37 @@
 
     function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function show_profile(fid){
+    document.getElementById('friend').value=fid;
+    document.getElementById('myform').submit();
+    }
+
+    var description = ["World first gourmet~", 
+                       "Cannot live with out deli!",
+                       "To do something amazing!", 
+                       "What for lunch? Errr...",
+                       "Never doubt that you are valuable and powerful.",
+                       "Looking for nice chinese food.",
+                       "I am the burger king.",
+                       "BBQ tonight?",
+                       "Always loving sushi.",
+                       "Georgia Tech first foodie",
+                       "Want some ice-cream and cheese cake!!",
+                       "Embrace your life",
+                       "All is well",
+                       "Just keep the moment",
+                       "Be yourself, be who you wanna be and do you wanna do.",
+                       "Hello, World!",
+                       "Simple is best.",
+                       "Better late than never.",
+                       ];
+
+
+    function des(){
+        var index=Math.floor((Math.random() * 17));
+        return description[index];
     }
     </script>
 

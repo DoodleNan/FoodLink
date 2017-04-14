@@ -6,7 +6,6 @@ html, body {
 }
 
 body {
-    overflow: hidden;
     background-color: #424242;
 }
 
@@ -14,7 +13,7 @@ body {
 /*topmenu*/
 .topmenu {
     z-index: 2;
-    position: absolute;
+    position: fixed;
     height: 12%;
     width: 100%;
     background-color: #424242;

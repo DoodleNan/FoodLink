@@ -11,6 +11,61 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<style>
+body {
+    overflow: scroll;
+}
+.ScrollStyle
+{
+    overflow-y: scroll;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.content {
+    z-index:1;
+    position:fixed;
+    left:0;
+    top:0;
+    overflow: scroll;
+    margin-top: 23%;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+p.share {color: #9E9E9E; font-size: 12px;}
+span.name {color: #111; font-size: 17px;}
+.coupon_button {
+    color: #FDFEFE;
+    background-color: #C0392B;
+    border: 2px solid #C0392B;
+    text-align: center;
+    font-size: 16px;
+}
+</style>
 <body>
 
     {% with messages = get_flashed_messages() %}
@@ -22,31 +77,37 @@
         </ul>
         {% endif %}
     {% endwith %}
-    <div class="w3-container">
 
-        <div class="top" style="height:80px">
+    <!-- Top Menu -->
+    <div class="topmenu" style="height: 13%;">
+        <div class="top">
             <!-- menuicon -->
             <span class="menuicon" onclick="openNav()">
                 <i class="fa fa-bars"></i>
             </span>
-            <!-- header -->
-            <div class="header">Coupons</div>
+            <!-- header -->       
+            <div class="header">Coupons</div>             
         </div>
+    </div>
 
-        <div class="ScrollStyle">
-            {%for item in rec_set%}
-                <div class="w3-container">
-                    <img src="{{item['rec'].pic1}}" class="w3-left w3-margin-right" style="width:150px; height: 120px">
-                    <p>{{item['rec'].name}}</p>
-                    <p>sharing with {{item['friend']}}</p>
-                    <form action="{{url_for('deal_coupon',user_name=user_name,friend_name=item['friend'])}}" method="POST">
-                        <button type="submit" class="w3-button w3-red" name="rec" value="{{item['rec'].name}}">{{item['rec'].coupon}}
-                        </button>
-                    </form>
+        <!-- coupon list -->
+        <div class="ScrollStyle" style="height: 100%;">
+                <div style="margin: 23% 2% 0 2%;">
+                {%for item in rec_set%}
+                <div class="row">
+                        <img src="{{item['rec'].pic1}}" class="col-3 w3-left" style="width:180px; height: 130px; margin-left: 3px;">
+                        <div class="col-10;">
+                            <p style="font-size: 12px;">{{item['rec'].name}}</p>
+                            <p class="share">Sharing with <span class="name" style="font-family: courier;">{{item['friend']}}</span></p>
+                            <form action="{{url_for('deal_coupon',user_name=user_name,friend_name=item['friend'])}}" method="POST">
+                                <button type="submit" class="coupon_button" name="rec" value="{{item['rec'].name}}">{{item['rec'].coupon}}
+                                </button>
+                            </form>
+                        </div>                   
                 </div>
-                <br>
-            {% endfor %}
-        </div>
+                <hr>
+                {% endfor %}
+                </div>
         </div>
 
     <!-- Hidden Sidenav (reveals when clicked on menu icon)-->
